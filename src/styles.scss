@@ -1,0 +1,154 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$prova-primary: mat-palette($mat-indigo);
+$prova-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$prova-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$prova-theme: mat-light-theme($prova-primary, $prova-accent, $prova-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($prova-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+/* For use in src/lib/core/theming/_palette.scss */
+$paleta-prova: (
+    50 : #e5f5fc,
+    100 : #bfe6f6,
+    200 : #94d5f1,
+    300 : #69c4eb,
+    400 : #49b8e6,
+    500 : #29abe2,
+    600 : #24a4df,
+    700 : #1f9ada,
+    800 : #1991d6,
+    900 : #0f80cf,
+    A100 : #fcfdff,
+    A200 : #c9e7ff,
+    A400 : #96d0ff,
+    A700 : #7cc5ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$branco: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+$button: (
+    50 : #e1e6ea,
+    100 : #b3c0cb,
+    200 : #8096a8,
+    300 : #4d6c85,
+    400 : #274d6b,
+    500 : #012d51,
+    600 : #01284a,
+    700 : #012240,
+    800 : #011c37,
+    900 : #001127,
+    A100 : #628eff,
+    A200 : #2f69ff,
+    A400 : #0046fb,
+    A700 : #003fe1,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+
+
+$light-primary:mat-palette($paleta-prova);
+$light-accent:mat-palette($button);
+$light-warn:mat-palette($mat-red);
+$light-theme:mat-light-theme($light-primary,$light-accent,$light-warn);
+@include angular-material-theme($light-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+.mat-form-field-label{
+    color:white!important;
+  }
+  .mat-form-field-underline{
+    background-color:white !important;
+  }
+  .mat-menu-content:not(:empty) {
+    background-color: #29abe2 !important;
+    position: absolute !important;
+    font-family: "Roboto" !important;
+    color: white !important;
+}
+  

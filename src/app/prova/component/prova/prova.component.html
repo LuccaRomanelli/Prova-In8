@@ -1,0 +1,300 @@
+<body>
+<form [formGroup]='provaform' novalidate > 
+    <div [ngClass]="{'fotoCapaMobile':plataforma===device.MOBILE,
+    'fotoCapaTablet':plataforma===device.TABLET,
+    'fotoCapaDesktop':plataforma===device.DESKTOP}"> 
+        <!-- <img src="../../../../assets/imagens/index-image.jpg" height="auto" width="100%"> -->
+    <div class="header">
+        <div  *ngIf="plataforma===device.MOBILE" >
+            <img src="../../../../assets/logo-in8-dev.svg" height="auto" width="100px" style="position: absolute; right: 5%;"> 
+        </div>
+        <div  *ngIf="plataforma===device.TABLET" class="logoT">
+            <img src="../../../../assets/logo-in8-dev.svg" height="auto" width="100px" style="position: absolute; left: 400px;"> 
+        </div>
+        <div  *ngIf="plataforma===device.DESKTOP" class="logoD">
+            <img src="../../../../assets/logo-in8-dev.svg" height="auto" width="200px"> 
+        </div>
+        <div *ngIf="plataforma!==device.DESKTOP" class="menuM">
+            <button [ngClass]="{'OpenMenu':menuOpen}" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" (menuOpened)="mudarMenu(true)" (menuClosed)="mudarMenu(false)">
+                <mat-icon *ngIf="!menuOpen"><img src='../../../../assets/icones/hamburguer.svg' ></mat-icon>
+                <mat-icon *ngIf="menuOpen" ><img src='../../../../assets/icones/hamburguer-aberto0.svg' ></mat-icon>
+                
+              </button>
+              <mat-menu  [overlapTrigger]="false" #menu="matMenu">
+                <button mat-menu-item (click)="autoScroll('Cadastro')">
+                  <span>Cadastro</span>
+                </button>
+                <button mat-menu-item (click)="autoScroll('Lista')">
+                  <span>Lista de Cadastro</span>
+                </button>
+                <button mat-menu-item (click)="autoScroll('Sobre mim')">
+                  <span>Sobre mim</span>
+                </button>
+              </mat-menu>   
+        </div>
+        <div *ngIf="plataforma===device.DESKTOP" class="menu">
+            <button mat-button (click)="autoScroll('Cadastro')" type="button">Cadastro</button>
+            <span>●</span>
+            <button mat-button (click)="autoScroll('Lista')" type="button">Lista</button>
+            <span>●</span>
+            <button mat-button (click)="autoScroll('Sobre mim')" type="button">Sobre mim</button>
+        </div>
+    </div>
+    <div class="title">
+        <span [ngClass]="{'titleM':plataforma===device.MOBILE,
+        'titleT':plataforma===device.TABLET,
+        'titleD':plataforma===device.DESKTOP}">ESTÁGIO</span>
+        <span [ngClass]="{'subtitleM':plataforma===device.MOBILE,
+        'subtitleT':plataforma===device.TABLET,
+        'subtitleD':plataforma===device.DESKTOP}">PROVA DE SELEÇÃO</span>
+    </div>
+    </div>
+    <div [ngClass]="{'CadastroM':plataforma===device.MOBILE,
+    'CadastroT':plataforma===device.TABLET,
+    'CadastroD':plataforma===device.DESKTOP}">
+        <span style="font-size: 90px;">Cadastro</span>
+    <span class="Formulário">Nome</span>
+        <mat-form-field>
+            <input matInput placeholder="Fulano Beltrano de Oliveira da Silva" formControlName="Nome" style="font-family: 'HelticaCondensed';">
+            <mat-error *ngIf = "provaform.controls.Nome.hasError('required')">Campo obrigatório</mat-error>  
+        </mat-form-field>
+        <span class="Formulário">E-mail</span>
+        <mat-form-field>
+            <input inputmode="email" matInput placeholder="fulanobos@email.com" formControlName="Email" style="font-family: 'HelticaCondensed';">
+            <mat-error *ngIf = "provaform.controls.Email.hasError('required')">Campo obrigatório</mat-error>  
+        </mat-form-field>
+        <span class="Formulário">Nascimento</span>
+        <mat-form-field>
+            <input [mask]="mascaraData" inputmode="numeric" matInput placeholder="DD/MM/AAAA" formControlName="Nascimento" style="font-family: 'HelticaCondensed';">
+            <mat-error *ngIf = "provaform.controls.Nascimento.hasError('required')">Campo obrigatório</mat-error>  
+            <mat-error *ngIf = "!provaform.controls.Nascimento.hasError('required') && provaform.controls.Telefone.hasError('minlength')" >Data Ivalida</mat-error>  
+        </mat-form-field>
+        <span class="Formulário">Telefone</span>
+        <mat-form-field>
+            <input [mask]="mascaraCelular"   inputmode="numeric" matInput placeholder="(XX)X XXXX-XXXX" formControlName="Telefone" style="font-family: 'HelticaCondensed';"> 
+            <mat-error *ngIf = "provaform.controls.Telefone.hasError('required')">Campo obrigatório</mat-error>  
+            <mat-error *ngIf = "!provaform.controls.Telefone.hasError('required') && provaform.controls.Telefone.hasError('minlength')">Numero Invalido</mat-error>  
+        </mat-form-field>
+        <button mat-raised-button style="font-family: 'HelveticaUltraLight';" type= "submit" color="accent" (click)="cadastarEstagiario()">  CADASTAR </button> 
+    </div>
+    <div [ngClass]="{'ListaDeCadastroM':plataforma===device.MOBILE,
+    'ListaDeCadastroT':plataforma===device.TABLET,
+    'ListaDeCadastroD':plataforma===device.DESKTOP}">
+        <span style="font-size: 90px;" >Lista de Cadastro</span>
+            <div *ngIf="plataforma===device.MOBILE">
+                <mat-tab-group style="align-items: center;">
+                    <mat-tab label="1"> 
+                         <div class="MTable">
+                             <div style="display: inline-flex;margin-top: 5px;">
+                                 <span class="MTableLabel">
+                                    NOME
+                                 </span>
+                                 <span class="MTableValue"> 
+                                    {{dataSource.data[0].Nome}}
+                                 </span>
+                                </div>
+                                <mat-divider></mat-divider>
+                             <div style="display: inline-flex;">
+                                <span class="MTableLabel">
+                                 E-MAIL
+                                </span>
+                                <span class="MTableValue"> 
+                                    {{dataSource.data[0].Email}}
+                                 </span>
+                             </div >
+                             <mat-divider></mat-divider>
+                             <div style="display: inline-flex;">
+                                 <span class="MTableLabel">
+                                    NASC.
+                                 </span>
+                                 <span class="MTableValue"> 
+                                    {{formatarData(dataSource.data[0].Nascimento)}}
+                                 </span>
+                             </div >
+                             <mat-divider></mat-divider>
+                             <div style="display: inline-flex;margin-bottom: 5px;">
+                                 <span class="MTableLabel">
+                                  TEL.
+                                 </span>
+                                 <span class="MTableValue"> 
+                                    {{formatarTelefone(dataSource.data[0].Telefone)}}
+                                 </span>
+
+                             </div>                             
+                        </div> 
+                    
+                    </mat-tab>
+                    <mat-tab label="2"> 
+                        <div class="MTable">
+                            <div style="display: inline-flex;margin-top: 5px;">
+                                <span class="MTableLabel">
+                                   NOME
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{dataSource.data[1].Nome}}
+                                </span>
+                               </div>
+                               <mat-divider></mat-divider>
+                            <div style="display: inline-flex;">
+                               <span class="MTableLabel">
+                                E-MAIL
+                               </span>
+                               <span class="MTableValue"> 
+                                   {{dataSource.data[1].Email}}
+                                </span>
+                            </div >
+                            <mat-divider></mat-divider>
+                            <div style="display: inline-flex;">
+                                <span class="MTableLabel">
+                                   NASC.
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{formatarData(dataSource.data[1].Nascimento)}}
+                                </span>
+                            </div >
+                            <mat-divider></mat-divider>
+                            <div style="display: inline-flex;margin-bottom: 5px;">
+                                <span class="MTableLabel">
+                                 TEL.
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{formatarTelefone(dataSource.data[1].Telefone)}}
+                                </span> 
+                            </div>
+                        </div>             
+                    </mat-tab>
+                    <mat-tab label="3">
+                        <div class="MTable">
+                            <div style="display: inline-flex;margin-top: 5px;">
+                                <span class="MTableLabel">
+                                   NOME
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{dataSource.data[2].Nome}}
+                                </span>
+                               </div>
+                               <mat-divider></mat-divider>
+                            <div style="display: inline-flex;">
+                               <span class="MTableLabel">
+                                E-MAIL
+                               </span>
+                               <span class="MTableValue"> 
+                                   {{dataSource.data[2].Email}}
+                                </span>
+                            </div >
+                            <mat-divider></mat-divider>
+                            <div style="display: inline-flex;">
+                                <span class="MTableLabel">
+                                   NASC.
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{formatarData(dataSource.data[2].Nascimento)}}
+                                </span>
+                            </div >
+                            <mat-divider></mat-divider>
+                            <div style="display: inline-flex;margin-bottom: 5px;">
+                                <span class="MTableLabel">
+                                 TEL.
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{formatarTelefone(dataSource.data[2].Telefone)}}
+                                </span>  
+                            </div>
+                        </div>     
+                    </mat-tab>
+                    <mat-tab label="4">
+                        <div class="MTable">
+                            <div style="display: inline-flex;margin-top: 5px;">
+                                <span class="MTableLabel">
+                                   NOME
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{dataSource.data[3].Nome}}
+                                </span>
+                               </div>
+                               <mat-divider></mat-divider>
+                            <div style="display: inline-flex;">
+                               <span class="MTableLabel">
+                                E-MAIL
+                               </span>
+                               <span class="MTableValue"> 
+                                   {{dataSource.data[3].Email}}
+                                </span>
+                            </div >
+                            <mat-divider></mat-divider>
+                            <div style="display: inline-flex;">
+                                <span class="MTableLabel">
+                                   NASC.
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{formatarData(dataSource.data[3].Nascimento)}}
+                                </span>
+                            </div >
+                            <mat-divider></mat-divider>
+                            <div style="display: inline-flex;margin-bottom: 5px;">
+                                <span class="MTableLabel">
+                                 TEL.
+                                </span>
+                                <span class="MTableValue"> 
+                                   {{formatarTelefone(dataSource.data[3].Telefone)}}
+                                </span>
+                            </div>
+                        </div>    
+                    </mat-tab>
+                  </mat-tab-group>
+                  <button class="TopButtonM" mat-icon-button color="accent" aria-label="Volte ao começo" (click)="autoScroll('Header')">
+              <mat-icon class="TopButtonIconM"><img src="../../../../assets/icones/topo-pag.svg"></mat-icon>
+          </button>
+            </div>
+
+
+        <div *ngIf="plataforma!==device.MOBILE" >
+            <table mat-table [dataSource]="dataSource">
+                
+                <ng-container matColumnDef="position" sticky>
+                    <th mat-header-cell *matHeaderCellDef> </th>
+                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="Nome" sticky>
+                    <th mat-header-cell *matHeaderCellDef> Nome </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Nome}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="Email" sticky> 
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="Nascimento" sticky>
+                    <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Nascimento </th>
+                        <td mat-cell *matCellDef="let element"> {{formatarData(element.Nascimento)}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="Telefone" stickyend>
+                        <th mat-header-cell *matHeaderCellDef> Telefone </th>
+                        <td mat-cell *matCellDef="let element"> {{formatarTelefone(element.Telefone)}} </td>
+                    </ng-container>          
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5]" showFirstLastButtons></mat-paginator>
+                <button [ngClass]="{'TopButtonT':plataforma===device.TABLET,
+                'TopButtonD':plataforma===device.DESKTOP}" mat-icon-button color="accent" aria-label="Volte ao começo" (click)="autoScroll('Header')">
+            <mat-icon [ngClass]="{' TopButtonIconT':plataforma===device.TABLET,
+            ' TopButtonIconD':plataforma===device.DESKTOP}"><img src="../../../../assets/icones/topo-pag.svg"></mat-icon>
+        </button>
+     </div>
+    </div>
+    <div [ngClass]="{'RodapeM':plataforma===device.MOBILE,
+    'RodapeT':plataforma===device.TABLET,
+    'RodapeD':plataforma===device.DESKTOP}">
+        <span style="font-family: 'Roboto';">Lucca Defelippo de Paula Romanelli</span>
+        <span style="font-family: 'Roboto';">ldpromanelli@gmail.com</span>
+        <span style="font-family: 'Roboto';">(31) 98881-1112</span>
+        <span style="font-family: 'Roboto';">Faculdade CEFET-MG</span>
+    </div>
+</form>
+<div *ngIf="menuOpen" class="opacity">. </div>
+</body>
+

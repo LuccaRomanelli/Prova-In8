@@ -1,0 +1,399 @@
+
+.fotoCapaDesktop{
+    height: 700px;
+    width: 100%;
+    background-color:  #29abe2;
+    background-image: url('/assets/imagens/index-image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    position: absolute !important;
+    }
+    .fotoCapaTablet{
+      height: 350px;
+      width: 100%;
+      background-color:  #29abe2;
+      background-image: url('/assets/imagens/index-image.jpg');
+      background-repeat: no-repeat;
+      background-size: cover; 
+      position: absolute !important;
+      }
+      .fotoCapaMobile{
+        height: 550px;
+        width: 100%;
+        background-color:  #29abe2;
+        background-image: url('src/assets/imagens/index-image-mobile.jpg');
+        background-repeat: no-repeat;
+        background-size: cover; 
+        position: absolute !important;
+        }
+
+.header{
+    position: absolute;
+    top: 20px;
+    width: 100vw;
+    color:black;
+}
+.menu{
+    display: inline-flex;
+    position: absolute;
+    right: 25%;
+    button{
+        color: white !important;
+        text-decoration: underline;
+    }
+    span{
+        color: white;
+        margin-top: 5px;
+
+    }
+    
+}
+
+.logoD{
+    position: absolute;
+    left: 25%;
+ }
+
+.titleD{
+    font-family: "HelveticaUltraLight" !important;
+    color: white;
+    display: grid;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    text-align: center;
+    font-size: 90px;
+ }
+.titleT{
+    font-family: "HelveticaUltraLight" !important;
+    color: white;
+    display: grid;
+    position: absolute;
+    left: 30%;
+    top: 15%;
+    text-align: center;
+    font-size: 40px;
+ }
+.titleM{
+    font-family: "HelveticaUltraLight" !important;
+    color: white;
+    display: grid;
+    position: absolute;
+    left: 30%;
+    top: 15%;
+    text-align: center;
+    font-size: 50px;
+ }
+ .subtitleD{
+  font-family: "HelveticaUltraLight" !important;
+  color: white;
+  display: grid;
+  position: absolute;
+  left: 30%;
+  top: 45%;
+  text-align: center;
+  font-size: 40px;
+}
+.subtitleT{
+  font-family: "HelveticaUltraLight" !important;
+  color: white;
+  display: grid;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  text-align: center;
+  font-size: 18px;
+}
+.subtitleM{
+  font-family: "HelveticaUltraLight" !important;
+  color: white;
+  display: grid;
+  position: absolute;
+  left: 30%;
+  top: 25%;
+  text-align: center;
+  font-size: 20px;
+}
+ .CadastroD{
+     background-color: #29abe2;
+     height: 700px;
+     width: 100%;
+     position: absolute;
+     top: 700px;
+     text-align: center;
+     color: white;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+    
+ }
+ .CadastroT{
+     background-color: #29abe2;
+     height: 700px;
+     width: 100%;
+     position: absolute;
+     top: 350px;
+     text-align: center;
+     color: white;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+    
+ }
+ .CadastroM{
+     background-color: #29abe2;
+     height: 700px;
+     width: 100%;
+     position: absolute;
+     top: 550px;
+     text-align: center;
+     color: white;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+    
+ }
+ .Formulário{
+     color: white;
+     font-family: 'Roboto';
+     font-size: 20px;
+     float: left;
+     text-align: left;
+ }
+ .ListaDeCadastroD{
+     background-color: white;
+     height: 700px;
+     width: 100% !important;
+     position: relative;
+     top: 1400px;
+     text-align: center;
+     color: #29abe2;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+ }
+ .ListaDeCadastroT{
+     background-color: white;
+     height: 700px;
+     width: 100% !important;
+     position: relative;
+     top: 1050px;
+     text-align: center;
+     color: #29abe2;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+ }
+ .ListaDeCadastroM{
+     background-color: white;
+     height: 700px;
+     width: 100% !important;
+     position: relative;
+     top: 1250px;
+     text-align: center;
+     color: #29abe2;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+ }
+ .RodapeD{
+     background-image: url('src/assets/imagens/rodape-desktop.jpg');
+     background-repeat: no-repeat;
+     background-size: cover; 
+     height: 200px;
+     width: 100%;
+     position: absolute;
+     top: 2100px;
+     text-align: center;
+     color: white;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+ }
+ .RodapeT{
+     background-image: url('src/assets/imagens/rodape-desktop.jpg');
+     background-repeat: no-repeat;
+     background-size: cover; 
+     height: 150px;
+     width: 100%;
+     position: absolute;
+     top: 1750px;
+     text-align: center;
+     color: white;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+ }
+ .RodapeM{
+     background-image: url('src/assets/imagens/rodape-mobile.jpg');
+     background-repeat: no-repeat;
+     background-size: cover; 
+     height: 300px;
+     width: 100%;
+     position: absolute;
+     top: 1950px;
+     text-align: center;
+     color: white;
+     font-family: "HelveticaUltraLight" !important;
+     align-items: center;
+     justify-content: center;
+     display: grid;
+ }
+   
+  table {
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+  
+  td.mat-column-star {
+    width: 20px;
+    padding-right: 8px;
+  }
+  
+  th.mat-column-position, td.mat-column-position {
+    padding-left: 8px;
+  }  
+
+ .mat-table-sticky {
+    border-right: 1px solid #29abe2 !important;
+  }
+  
+  .mat-table-sticky:last-child {
+    border-left: 0px ;
+  }
+
+  td.mat-cell{
+    border-bottom-color: #29abe2 !important;
+    border-bottom-width: 1px;
+  }
+
+  th.mat-header-cell{
+    border-bottom-color: #29abe2 !important;
+    padding: 20px;
+    text-align: center;
+  }
+  .mat-header-cell{
+      color: #012d51;
+      font-family: 'Roboto';
+  }
+  .TopButtonD{
+    position: absolute;
+    right: 200px;
+    bottom: 50px;
+    height: 100px;
+    width: 100px;
+  }
+  .TopButtonT{
+    position: absolute;
+    right: 100px;
+    bottom: 20px;
+    height: 50px;
+    width: 50px;
+  }
+  .TopButtonM{
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    height: 50px;
+    width: 50px;
+  }
+  .TopButtonIconD{
+    height: 100px;
+    width: 100px;
+  }
+  .TopButtonIconT{
+    height: 50px;
+    width: 50px;
+  }
+  .TopButtonIconM{
+    height: 50px;
+    width: 50px;
+  }
+  .menuM{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    color: white;
+
+  }
+  .mat-menu-item {
+    font-family: "Roboto" !important;
+    color: white !important;
+}
+.OpenMenu{
+  width: 141px;
+  // height: 50px;
+  padding-right: 100px;
+  background-color:#29abe2!important;
+  border-radius: 0;
+  animation: animacaoteste 300ms linear;
+  z-index: 3 !important;
+}
+  @keyframes animacaoteste{
+    0% {
+      opacity: 0;
+      // transform: translatey(0px);
+   }
+   100% {
+      opacity: 1;
+      // transform: translatey(20px);
+   }
+  }
+  .opacity{
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    color: rgba(0, 0, 0, 0.0);
+    z-index: 2 !important;
+  }
+  .MTable{
+    border-style: solid;
+    border-color: #29abe2;
+    border-width: 2px;
+    background-color: white;
+    width: 284px;
+
+    
+
+  }
+  mat-divider {
+    border-top-color: #29abe2 !important;
+    border-top-width: 2px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.MTableLabel{
+  position: relative;
+  margin-left: -110px;
+  color: #012d51 !important;
+}
+.MTableValue{
+  color: #808080;
+  position: relative;
+  margin-left: 10px;
+}
+  .testeM{
+    color: lawngreen;
+    
+  }
+  .testeT{
+    color: palevioletred;
+  }
+  .testeD{
+    color: peru;
+  }
+  
